@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.example</groupId>
+		<artifactId>platform-education</artifactId>
+		<version>0.0.1</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>migration</artifactId>
+	<version>0.0.1</version>
+	<name>migration</name>
+	<description>migration</description>
+
+	<properties>
+		<profile.propertyFile>src/main/resources/db/liquibase.properties</profile.propertyFile>
+		<profile.changeLogFile>src/main/resources/db/master.xml</profile.changeLogFile>
+		<profile.dataDir>src/main/resources/db/data</profile.dataDir>
+		<profile.verbose>false</profile.verbose>
+		<profile.logging>debug</profile.logging>
+		<profile.changelogSchemaName>public</profile.changelogSchemaName>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>4.24.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>4.9.1</version>
+				<configuration>
+					<changelogSchemaName>${profile.changelogSchemaName}</changelogSchemaName>
+					<propertyFile>${profile.propertyFile}</propertyFile>
+					<changeLogFile>${profile.changeLogFile}</changeLogFile>
+					<dataDir>${profile.dataDir}</dataDir>
+					<!-- log  -->
+					<verbose>${profile.verbose}</verbose>
+					<logging>${profile.logging}</logging>
+					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

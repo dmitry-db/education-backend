@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/education_platform
+    username: postgres
+    password: root
+  application:
+    name: core

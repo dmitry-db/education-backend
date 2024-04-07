@@ -1,0 +1,13 @@
+drop table if exists faculty;
+drop table if exists department;
+drop table if exists teacher;
+drop table if exists course;
+drop table if exists teacher_course_link;
+drop table if exists lecture;
+drop table if exists course_lecture_link;
+drop table if exists test;
+drop table if exists question;
+drop table if exists answer;
+drop table if exists "group";
+drop table if exists student;
+drop table if exists students_lecture_link;
